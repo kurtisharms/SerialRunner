@@ -52,14 +52,14 @@
             this.dataReceivedListBox.AccessibleName = "";
             this.dataReceivedListBox.FormattingEnabled = true;
             this.dataReceivedListBox.ItemHeight = 16;
-            this.dataReceivedListBox.Location = new System.Drawing.Point(28, 76);
+            this.dataReceivedListBox.Location = new System.Drawing.Point(28, 119);
             this.dataReceivedListBox.Name = "dataReceivedListBox";
-            this.dataReceivedListBox.Size = new System.Drawing.Size(225, 116);
+            this.dataReceivedListBox.Size = new System.Drawing.Size(417, 212);
             this.dataReceivedListBox.TabIndex = 0;
             // 
             // connectionButton
             // 
-            this.connectionButton.Location = new System.Drawing.Point(178, 31);
+            this.connectionButton.Location = new System.Drawing.Point(155, 31);
             this.connectionButton.Name = "connectionButton";
             this.connectionButton.Size = new System.Drawing.Size(75, 23);
             this.connectionButton.TabIndex = 1;
@@ -77,9 +77,9 @@
             // 
             // saveDataFileButton
             // 
-            this.saveDataFileButton.Location = new System.Drawing.Point(73, 218);
+            this.saveDataFileButton.Location = new System.Drawing.Point(160, 344);
             this.saveDataFileButton.Name = "saveDataFileButton";
-            this.saveDataFileButton.Size = new System.Drawing.Size(75, 23);
+            this.saveDataFileButton.Size = new System.Drawing.Size(134, 23);
             this.saveDataFileButton.TabIndex = 3;
             this.saveDataFileButton.Text = "Save to File";
             this.saveDataFileButton.UseVisualStyleBackColor = true;
@@ -89,13 +89,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.ClientSize = new System.Drawing.Size(457, 379);
             this.Controls.Add(this.saveDataFileButton);
             this.Controls.Add(this.portSelectionComboBox);
             this.Controls.Add(this.connectionButton);
             this.Controls.Add(this.dataReceivedListBox);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "SerialRunner";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
