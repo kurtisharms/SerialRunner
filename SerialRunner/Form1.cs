@@ -27,13 +27,7 @@ namespace SerialRunner
         }
 
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            portSelectionComboBox.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
-            if (portSelectionComboBox.Items.Count > 0)
-                portSelectionComboBox.SelectedIndex = 0;
-
-        }
+     
 
 
 
