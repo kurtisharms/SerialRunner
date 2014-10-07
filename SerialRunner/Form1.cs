@@ -110,5 +110,26 @@ namespace SerialRunner
 
             }
         }
+
+        private void sendDataButton_Click(object sender, EventArgs e)
+        {
+            if (serialPort.IsOpen)
+            {
+                serialPort.WriteLine(sendDataTextBox.Text);
+            }
+        }
+
+        private void sendDataButton_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void sendDataButton_KeyDown(object sender, KeyEventArgs e)
+        {
+             if (e.KeyCode == Keys.Enter && serialPort.IsOpen)
+            {
+                serialPort.WriteLine(sendDataTextBox.Text);
+            }
+        }
     }
 }

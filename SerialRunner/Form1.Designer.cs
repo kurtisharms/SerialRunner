@@ -36,6 +36,8 @@
             this.connectionButton = new System.Windows.Forms.Button();
             this.portSelectionComboBox = new System.Windows.Forms.ComboBox();
             this.saveDataFileButton = new System.Windows.Forms.Button();
+            this.sendDataTextBox = new System.Windows.Forms.TextBox();
+            this.sendDataButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // serialPort
@@ -85,11 +87,32 @@
             this.saveDataFileButton.UseVisualStyleBackColor = true;
             this.saveDataFileButton.Click += new System.EventHandler(this.saveDataFileButton_Click);
             // 
+            // sendDataTextBox
+            // 
+            this.sendDataTextBox.Location = new System.Drawing.Point(28, 77);
+            this.sendDataTextBox.Name = "sendDataTextBox";
+            this.sendDataTextBox.Size = new System.Drawing.Size(282, 22);
+            this.sendDataTextBox.TabIndex = 4;
+            // 
+            // sendDataButton
+            // 
+            this.sendDataButton.Location = new System.Drawing.Point(329, 77);
+            this.sendDataButton.Name = "sendDataButton";
+            this.sendDataButton.Size = new System.Drawing.Size(116, 23);
+            this.sendDataButton.TabIndex = 5;
+            this.sendDataButton.Text = "Send Data";
+            this.sendDataButton.UseVisualStyleBackColor = true;
+            this.sendDataButton.Click += new System.EventHandler(this.sendDataButton_Click);
+            this.sendDataButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sendDataButton_KeyDown);
+            this.sendDataButton.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sendDataButton_KeyPress);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 379);
+            this.Controls.Add(this.sendDataButton);
+            this.Controls.Add(this.sendDataTextBox);
             this.Controls.Add(this.saveDataFileButton);
             this.Controls.Add(this.portSelectionComboBox);
             this.Controls.Add(this.connectionButton);
@@ -99,6 +122,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -111,6 +135,8 @@
         private System.Windows.Forms.Button connectionButton;
         private System.Windows.Forms.ComboBox portSelectionComboBox;
         private System.Windows.Forms.Button saveDataFileButton;
+        private System.Windows.Forms.TextBox sendDataTextBox;
+        private System.Windows.Forms.Button sendDataButton;
     }
 }
 
