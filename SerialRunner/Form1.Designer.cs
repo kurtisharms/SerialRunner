@@ -44,7 +44,6 @@
             // 
             // serialPort
             // 
-            this.serialPort.BaudRate = 57600;
             this.serialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort_DataReceived);
             // 
             // readDataTimer
