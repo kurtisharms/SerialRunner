@@ -38,6 +38,8 @@
             this.saveDataFileButton = new System.Windows.Forms.Button();
             this.sendDataTextBox = new System.Windows.Forms.TextBox();
             this.sendDataButton = new System.Windows.Forms.Button();
+            this.separatorLabel = new System.Windows.Forms.Label();
+            this.separatorTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // serialPort
@@ -52,11 +54,16 @@
             // dataReceivedListBox
             // 
             this.dataReceivedListBox.AccessibleName = "";
+            this.dataReceivedListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataReceivedListBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataReceivedListBox.FormattingEnabled = true;
-            this.dataReceivedListBox.ItemHeight = 16;
+            this.dataReceivedListBox.HorizontalScrollbar = true;
+            this.dataReceivedListBox.ItemHeight = 24;
             this.dataReceivedListBox.Location = new System.Drawing.Point(28, 119);
             this.dataReceivedListBox.Name = "dataReceivedListBox";
-            this.dataReceivedListBox.Size = new System.Drawing.Size(417, 212);
+            this.dataReceivedListBox.Size = new System.Drawing.Size(623, 244);
             this.dataReceivedListBox.TabIndex = 0;
             // 
             // connectionButton
@@ -79,7 +86,9 @@
             // 
             // saveDataFileButton
             // 
-            this.saveDataFileButton.Location = new System.Drawing.Point(160, 344);
+            this.saveDataFileButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveDataFileButton.Location = new System.Drawing.Point(294, 403);
             this.saveDataFileButton.Name = "saveDataFileButton";
             this.saveDataFileButton.Size = new System.Drawing.Size(134, 23);
             this.saveDataFileButton.TabIndex = 3;
@@ -106,11 +115,30 @@
             this.sendDataButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sendDataButton_KeyDown);
             this.sendDataButton.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sendDataButton_KeyPress);
             // 
+            // separatorLabel
+            // 
+            this.separatorLabel.AutoSize = true;
+            this.separatorLabel.Location = new System.Drawing.Point(460, 82);
+            this.separatorLabel.Name = "separatorLabel";
+            this.separatorLabel.Size = new System.Drawing.Size(71, 17);
+            this.separatorLabel.TabIndex = 6;
+            this.separatorLabel.Text = "Separator";
+            // 
+            // separatorTextBox
+            // 
+            this.separatorTextBox.Location = new System.Drawing.Point(538, 76);
+            this.separatorTextBox.Name = "separatorTextBox";
+            this.separatorTextBox.Size = new System.Drawing.Size(100, 22);
+            this.separatorTextBox.TabIndex = 7;
+            this.separatorTextBox.Text = "#";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 379);
+            this.ClientSize = new System.Drawing.Size(677, 438);
+            this.Controls.Add(this.separatorTextBox);
+            this.Controls.Add(this.separatorLabel);
             this.Controls.Add(this.sendDataButton);
             this.Controls.Add(this.sendDataTextBox);
             this.Controls.Add(this.saveDataFileButton);
@@ -137,6 +165,8 @@
         private System.Windows.Forms.Button saveDataFileButton;
         private System.Windows.Forms.TextBox sendDataTextBox;
         private System.Windows.Forms.Button sendDataButton;
+        private System.Windows.Forms.Label separatorLabel;
+        private System.Windows.Forms.TextBox separatorTextBox;
     }
 }
 
