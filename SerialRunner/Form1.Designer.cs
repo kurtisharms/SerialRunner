@@ -40,6 +40,7 @@
             this.sendDataButton = new System.Windows.Forms.Button();
             this.separatorLabel = new System.Windows.Forms.Label();
             this.separatorTextBox = new System.Windows.Forms.TextBox();
+            this.baudRateComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // serialPort
@@ -67,7 +68,7 @@
             // 
             // connectionButton
             // 
-            this.connectionButton.Location = new System.Drawing.Point(155, 31);
+            this.connectionButton.Location = new System.Drawing.Point(294, 30);
             this.connectionButton.Name = "connectionButton";
             this.connectionButton.Size = new System.Drawing.Size(75, 23);
             this.connectionButton.TabIndex = 1;
@@ -131,11 +132,23 @@
             this.separatorTextBox.TabIndex = 7;
             this.separatorTextBox.Text = "#";
             // 
+            // baudRateComboBox
+            // 
+            this.baudRateComboBox.FormattingEnabled = true;
+            this.baudRateComboBox.Items.AddRange(new object[] {
+            "9600",
+            "57600"});
+            this.baudRateComboBox.Location = new System.Drawing.Point(167, 30);
+            this.baudRateComboBox.Name = "baudRateComboBox";
+            this.baudRateComboBox.Size = new System.Drawing.Size(121, 24);
+            this.baudRateComboBox.TabIndex = 8;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 438);
+            this.Controls.Add(this.baudRateComboBox);
             this.Controls.Add(this.separatorTextBox);
             this.Controls.Add(this.separatorLabel);
             this.Controls.Add(this.sendDataButton);
@@ -166,6 +179,7 @@
         private System.Windows.Forms.Button sendDataButton;
         private System.Windows.Forms.Label separatorLabel;
         private System.Windows.Forms.TextBox separatorTextBox;
+        private System.Windows.Forms.ComboBox baudRateComboBox;
     }
 }
 

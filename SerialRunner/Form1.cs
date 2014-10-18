@@ -62,6 +62,10 @@ namespace SerialRunner
             {
                 // just silently fail
             }
+            catch (Exception)
+            {
+                // just silently fail
+            }
         }
 
         private void connectionButton_Click(object sender, EventArgs e)
@@ -71,6 +75,7 @@ namespace SerialRunner
                 if (!serialPort.IsOpen)
                 {
                     serialPort.PortName = portSelectionComboBox.SelectedItem.ToString();
+                    serialPort.BaudRate = Convert.ToInt32(baudRateComboBox.SelectedItem.ToString());
                     serialPort.Open();
                     //tinyStickSerialPort.DtrEnable = true;
                     connectionButton.Text = "Disconnect";
