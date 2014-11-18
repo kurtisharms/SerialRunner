@@ -26,14 +26,6 @@ namespace SerialRunner
 
         }
 
-
-     
-
-
-
-
-
-
         private void saveDataFileButton_Click(object sender, EventArgs e)
         {
             StreamWriter outputFile;
