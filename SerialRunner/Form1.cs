@@ -16,6 +16,7 @@ namespace SerialRunner
     public partial class MainForm : Form
     {
         ConcurrentQueue<int> dataQueue = new ConcurrentQueue<int>();
+        StringBuilder sb = new StringBuilder();
         public MainForm()
         {
             InitializeComponent();
@@ -23,8 +24,17 @@ namespace SerialRunner
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            portSelectionComboBox.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
+            if (portSelectionComboBox.Items.Count > 0)
+                portSelectionComboBox.SelectedIndex = 0;
         }
+<<<<<<< HEAD
+=======
+   
+
+
+
+>>>>>>> origin/master
 
         private void saveDataFileButton_Click(object sender, EventArgs e)
         {
@@ -44,9 +54,20 @@ namespace SerialRunner
 
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            while (serialPort.ReadBufferSize > 0)
+            try
             {
-                dataQueue.Enqueue(serialPort.ReadByte());
+                while (serialPort.ReadBufferSize > 0)
+                {
+                    dataQueue.Enqueue(serialPort.ReadByte());
+                }
+            }
+            catch (InvalidOperationException)
+            {
+                // just silently fail
+            }
+            catch (Exception)
+            {
+                // just silently fail
             }
         }
 
@@ -57,12 +78,13 @@ namespace SerialRunner
                 if (!serialPort.IsOpen)
                 {
                     serialPort.PortName = portSelectionComboBox.SelectedItem.ToString();
+                    serialPort.BaudRate = Convert.ToInt32(baudRateComboBox.SelectedItem.ToString());
                     serialPort.Open();
                     //tinyStickSerialPort.DtrEnable = true;
                     connectionButton.Text = "Disconnect";
                     readDataTimer.Enabled = true;
                     //serialPort1.WriteLine("LOG COM1 BESTPOSB ONTIME 1[CR]");
-                    serialPort.WriteLine("log com1 loglist");
+                    //serialPort.WriteLine("log com1 loglist");
                 }
                 else
                 {
@@ -87,13 +109,41 @@ namespace SerialRunner
 
         private void readDataTimer_Tick(object sender, EventArgs e)
         {
+            
             int result;
-            if (dataQueue.TryDequeue(out result))
+            while (dataQueue.Count > 0)
             {
-                char c = Convert.ToChar(result);
-                string d = c.ToString();
-                dataReceivedListBox.Items.Add(d);
+                if (dataQueue.TryDequeue(out result))
+                {
+                    char c = Convert.ToChar(result);
+                    string d = c.ToString();
 
+                    if (separatorTextBox.Text.Trim() != "")
+                    {
+                        if (d.Trim() == separatorTextBox.Text.Trim())
+                        {
+                            if (sb.Length > 0)
+                                dataReceivedListBox.Items.Add(sb.ToString());
+                            sb.Clear();
+                            sb.Append(d);
+                        }
+                        else if (sb.Length == 0)
+                        {
+                            dataReceivedListBox.Items.Add(d);
+                        }
+                        else
+                        {
+                            sb.Append(d);
+                        }
+
+                    }
+
+                    else
+                    {
+                        // the textbox has no values
+                        dataReceivedListBox.Items.Add(d);
+                    }
+                }
             }
         }
 
